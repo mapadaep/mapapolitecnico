@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Civil</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    #mapa {
+      position: relative;
+      width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 10px;
+    }
+    #mapa img {
+      width: 100%;
+      display: block;
+    }
+
+    .ponto {
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .ponto.active {
+    z-index: 9999;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    transition: transform .3s;
+  }
+  .ponto:hover .dot {
+    transform: scale(1.3);
+  }
+
+  .popup {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 185px;
+    aspect-ratio: 3 / 5;
+    overflow: hidden;
+    background-color: #fff;
+    border: 2px solid #000;
+    z-index: 1000;
+  }
+  .ponto.active .popup {
+    display: block;
+  }
+  .popup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  </style>
+</head>
+<body>
+  <div id="mapa">
+    <img src="mapa.png" alt="Mapa">
+
+    <!-- Ponto 1 -->
+    <div class="ponto" style="top: 760px; left: 421px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #c5ff29;"></div>
+      <div class="popup">
+        <img src="Audces.png" alt="Auditorio do Cesec">
+      </div>
+    </div>
+	
+	<!-- Ponto 2 -->
+    <div class="ponto" style="top: 759px; left: 431px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #ffb834;"></div>
+      <div class="popup">
+        <img src="cesec.png" alt="Cesec">
+      </div>
+    </div>
+	
+	<!-- Ponto 3 -->
+    <div class="ponto" style="top: 760px; left: 506px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #34ffed;"></div>
+      <div class="popup">
+        <img src="gdhs.png" alt="Gabinetes DHS (Departamento de Hidráulica e Saneamento">
+      </div>
+    </div>
+	
+		<!-- Ponto 4 -->
+    <div class="ponto" style="top: 690px; left: 390px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #024CF2;"></div>
+      <div class="popup">
+        <img src="labhidro.png" alt="Laboratório Hidráulica">
+      </div>
+    </div>
+
+		<!-- Ponto 5 -->
+    <div class="ponto" style="top: 704px; left: 533px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #401303;"></div>
+      <div class="popup">
+        <img src="gegeo.png" alt="GEGEO">
+      </div>
+    </div>
+	
+			<!-- Ponto 6 -->
+    <div class="ponto" style="top: 775px; left: 516px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #0C0340;"></div>
+      <div class="popup">
+        <img src="alcance.png" alt="Alcance">
+      </div>
+    </div>
+	
+			<!-- Ponto 7 -->
+    <div class="ponto" style="top: 575px; left: 594px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #E01616;"></div>
+      <div class="popup">
+        <img src="coord.png" alt="Coordenação do curso">
+      </div>
+    </div>
+	
+			<!-- Ponto 8 -->
+    <div class="ponto" style="top: 687px; left: 527px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #12078F;"></div>
+      <div class="popup">
+        <img src="daep.png" alt="DAEP">
+      </div>
+    </div>
+	
+			<!-- Ponto 9 -->
+    <div class="ponto" style="top: 705px; left: 570px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #2716DE;"></div>
+      <div class="popup">
+        <img src="toca.png" alt="Toca do Castor">
+      </div>
+    </div>
+	
+			<!-- Ponto 10 -->
+    <div class="ponto" style="top: 692px; left: 539px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #16DE70;"></div>
+      <div class="popup">
+        <img src="gdcc.png" alt="Gabinetes DCC (Departamento de Construção Civil)">
+      </div>
+    </div>
+	
+			<!-- Ponto 11 -->
+    <div class="ponto" style="top: 752px; left: 511px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #a08c74;"></div>
+      <div class="popup">
+        <img src="gdtt.png" alt="Gabinetes DTT (Departamento de Transportes">
+      </div>
+    </div>
+	
+			<!-- Ponto 12 -->
+    <div class="ponto" style="top: 717px; left: 416px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #858585;"></div>
+      <div class="popup">
+        <img src="labconcreto.png" alt="Laboratório de Concreto">
+      </div>
+    </div>
+	
+			<!-- Ponto 13 -->
+    <div class="ponto" style="top: 526px; left: 687px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #433E4A;"></div>
+      <div class="popup">
+        <img src="pa.png" alt="PA (Prédio de Exatas)">
+      </div>
+    </div>
+	
+			<!-- Ponto 14 -->
+    <div class="ponto" style="top: 580px; left: 665px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #465773;"></div>
+      <div class="popup">
+        <img src="pc.png" alt="PC (Prédio de Exatas)">
+      </div>
+    </div>
+	
+			<!-- Ponto 15 -->
+    <div class="ponto" style="top: 651px; left: 635px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #736946;"></div>
+      <div class="popup">
+        <img src="ct.png" alt="Centro de Ciências da Terra">
+      </div>
+    </div>
+	
+			<!-- Ponto 16 -->
+    <div class="ponto" style="top: 567px; left: 574px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #34ffed;"></div>
+      <div class="popup">
+        <img src="audadm.png" alt="Auditório da Administração">
+      </div>
+    </div>
+	
+			<!-- Ponto 16 -->
+    <div class="ponto" style="top: 657px; left: 460px;" onclick="togglePopup(this)">
+      <div class="dot" style="background-color: #cbcbc2;"></div>
+      <div class="popup">
+        <img src="eletrica.png" alt="Bloco de elétrica">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePopup(el) {
+      document.querySelectorAll('.ponto.active').forEach(p => {
+        if (p !== el) p.classList.remove('active');
+      });
+      el.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
